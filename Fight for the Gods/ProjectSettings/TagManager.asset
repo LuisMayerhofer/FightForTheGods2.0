@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Player1
+  - Player2
+  - Destroyable
+  - Level
+  - Destroy
+  - Zauber1Blau
+  - Zauber1Gruen
+  - Zauber2Rot
+  - Zauber2Blau
+  - Zauber2Gruen
+  - Zauber3Blau
+  - Zauber3Gruen
+  - Zauber3Rot
+  - Shield
+  - Zauber1Rot
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - BlockingLayer
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Hero
+    uniqueID: 646002543
+    locked: 0
