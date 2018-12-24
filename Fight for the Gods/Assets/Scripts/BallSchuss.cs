@@ -276,7 +276,7 @@ public class BallSchuss : MonoBehaviour {
         else
         {
             //Rot
-            if (Input.GetKeyDown("f") && Zauber1 == true)
+            if ((Input.GetKeyDown("f") || Input.GetButtonDown("B Button")) && Zauber1 == true)
             {
                 if (Time.time > nextShield1Allowed)
                 {
@@ -286,7 +286,7 @@ public class BallSchuss : MonoBehaviour {
                     nextShield1Allowed = Time.time + Shield1CD;
                 }
             }
-            else if (Input.GetKeyDown("f") && Zauber2 == true)
+            else if ((Input.GetKeyDown("f") || Input.GetButtonDown("B Button")) && Zauber2 == true)
             {
                 if (Time.time > nextShield2Allowed)
                 {
@@ -296,7 +296,7 @@ public class BallSchuss : MonoBehaviour {
                     nextShield2Allowed = Time.time + Shield2CD;
                 }
             }
-            else if (Input.GetKeyDown("f") && Zauber3 == true)
+            else if ((Input.GetKeyDown("f") || Input.GetButtonDown("B Button")) && Zauber3 == true)
             {
                 if (Time.time > nextShield3Allowed)
                 {
@@ -308,7 +308,7 @@ public class BallSchuss : MonoBehaviour {
             }
 
             //Gruen
-            if (Input.GetKeyDown("g") && Zauber1 == true)
+            if ((Input.GetKeyDown("g") || Input.GetButtonDown("A Button")) && Zauber1 == true)
             {
                 if (Time.time > nextShield1Allowed)
                 {
@@ -318,7 +318,7 @@ public class BallSchuss : MonoBehaviour {
                     nextShield1Allowed = Time.time + Shield1CD;
                 }
             }
-            else if (Input.GetKeyDown("g") && Zauber2 == true)
+            else if ((Input.GetKeyDown("g") || Input.GetButtonDown("A Button")) && Zauber2 == true)
             {
                 if (Time.time > nextShield2Allowed)
                 {
@@ -328,7 +328,7 @@ public class BallSchuss : MonoBehaviour {
                     nextShield2Allowed = Time.time + Shield2CD;
                 }
             }
-            else if (Input.GetKeyDown("g") && Zauber3 == true)
+            else if ((Input.GetKeyDown("g") || Input.GetButtonDown("A Button")) && Zauber3 == true)
             {
                 if (Time.time > nextShield3Allowed)
                 {
@@ -340,7 +340,7 @@ public class BallSchuss : MonoBehaviour {
             }
 
             //Blau
-            if (Input.GetKeyDown("h") && Zauber1 == true)
+            if ((Input.GetKeyDown("h") || Input.GetButtonDown("X Button")) && Zauber1 == true)
             {
                 if (Time.time > nextShield1Allowed)
                 {
@@ -350,7 +350,7 @@ public class BallSchuss : MonoBehaviour {
                     nextShield1Allowed = Time.time + Shield1CD;
                 }
             }
-            else if (Input.GetKeyDown("h") && Zauber2 == true)
+            else if ((Input.GetKeyDown("h") || Input.GetButtonDown("X Button")) && Zauber2 == true)
             {
                 if (Time.time > nextShield2Allowed)
                 {
@@ -360,7 +360,7 @@ public class BallSchuss : MonoBehaviour {
                     nextShield2Allowed = Time.time + Shield2CD;
                 }
             }
-            else if (Input.GetKeyDown("h") && Zauber3 == true)
+            else if ((Input.GetKeyDown("h") || Input.GetButtonDown("X Button")) && Zauber3 == true)
             {
                 if (Time.time > nextShield3Allowed)
                 {
@@ -383,7 +383,7 @@ public class BallSchuss : MonoBehaviour {
             BallInstance.AddForce(ShootForwards * ShootingForce);
         else if (facingBackwards == true)
             BallInstance.AddForce(ShootBackwards * ShootingForce);
+            
             */
-
     }
 }
