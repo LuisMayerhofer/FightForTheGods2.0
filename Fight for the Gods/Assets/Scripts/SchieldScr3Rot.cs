@@ -50,6 +50,8 @@ public class SchieldScr3Rot : MonoBehaviour
         {
             Destroy(coll.gameObject);
         }
+        else if (coll.CompareTag("Zauber3Rot"))
+            return;
        
 
 
