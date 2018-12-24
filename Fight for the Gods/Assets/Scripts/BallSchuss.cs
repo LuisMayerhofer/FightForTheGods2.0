@@ -14,10 +14,24 @@ public class BallSchuss : MonoBehaviour {
     public Rigidbody2D ZauberGRUEN3;
     public Rigidbody2D ZauberBLAU3;
 
+    public Rigidbody2D ShieldROT1;
+    public Rigidbody2D ShieldGRUEN1;
+    public Rigidbody2D ShieldBLAU1;
+    public Rigidbody2D ShieldROT2;
+    public Rigidbody2D ShieldGRUEN2;
+    public Rigidbody2D ShieldBLAU2;
+    public Rigidbody2D ShieldROT3;
+    public Rigidbody2D ShieldGRUEN3;
+    public Rigidbody2D ShieldBLAU3;
+
     public float ShootingForce;
     public float Zauber1CD;
     public float Zauber2CD;
     public float Zauber3CD;
+
+    public float Shield1CD;
+    public float Shield2CD;
+    public float Shield3CD;
 
     public Transform AbschussPosition;
     public SpriteRenderer sr;
@@ -32,6 +46,10 @@ public class BallSchuss : MonoBehaviour {
     private float nextZauber2Allowed;
     private float nextZauber3Allowed;
 
+    private float nextShield1Allowed;
+    private float nextShield2Allowed;
+    private float nextShield3Allowed;
+
     private bool facingRight;
     private bool facingLeft;
     private bool facingForwards;
@@ -39,6 +57,7 @@ public class BallSchuss : MonoBehaviour {
     private bool Zauber1 = true;
     private bool Zauber2 = false;
     private bool Zauber3 = false;
+    private bool Capslock = false;
 
     private Vector2 ShootForwards = new Vector2(0, 1);
 
@@ -54,7 +73,12 @@ public class BallSchuss : MonoBehaviour {
 
     void Update () {
 
-
+        if (Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            Capslock = true;
+        }
+        if (Input.GetKeyUp(KeyCode.CapsLock))
+            Capslock = false;
 
         //Facing
         /*if (Input.GetButtonDown("right"))
@@ -147,8 +171,10 @@ public class BallSchuss : MonoBehaviour {
             }
         }
 
-        //Rot
-        if ((Input.GetKeyDown("f") || Input.GetButtonDown("B Button")) && Zauber1 == true)
+        if (!Capslock)
+        {
+            //Rot
+            if ((Input.GetKeyDown("f") || Input.GetButtonDown("B Button")) && Zauber1 == true)
         {
             if (Time.time > nextZauber1Allowed)
             {
@@ -211,8 +237,9 @@ public class BallSchuss : MonoBehaviour {
             }
         }
 
-        //Blau
-        if ((Input.GetKeyDown("h") || Input.GetButtonDown("X Button")) && Zauber1 == true)
+        
+            //Blau
+            if ((Input.GetKeyDown("h") || Input.GetButtonDown("X Button")) && Zauber1 == true)
         {
             if (Time.time > nextZauber1Allowed)
             {
@@ -244,20 +271,119 @@ public class BallSchuss : MonoBehaviour {
         }
 
 
+            //Shields
+        }
+        else
+        {
+            //Rot
+            if (Input.GetKeyDown("f") && Zauber1 == true)
+            {
+                if (Time.time > nextShield1Allowed)
+                {
+                    Rigidbody2D ZauberInstance;
+                    ZauberInstance = Instantiate(ShieldROT1, AbschussPosition.position, transform.rotation) as Rigidbody2D;
+
+                    nextShield1Allowed = Time.time + Shield1CD;
+                }
+            }
+            else if (Input.GetKeyDown("f") && Zauber2 == true)
+            {
+                if (Time.time > nextShield2Allowed)
+                {
+                    Rigidbody2D ZauberInstance;
+                    ZauberInstance = Instantiate(ShieldROT2, AbschussPosition.position, transform.rotation) as Rigidbody2D;
+
+                    nextShield2Allowed = Time.time + Shield2CD;
+                }
+            }
+            else if (Input.GetKeyDown("f") && Zauber3 == true)
+            {
+                if (Time.time > nextShield3Allowed)
+                {
+                    Rigidbody2D ZauberInstance;
+                    ZauberInstance = Instantiate(ShieldROT3, AbschussPosition.position, transform.rotation) as Rigidbody2D;
+
+                    nextShield3Allowed = Time.time + Shield3CD;
+                }
+            }
+
+            //Gruen
+            if (Input.GetKeyDown("g") && Zauber1 == true)
+            {
+                if (Time.time > nextShield1Allowed)
+                {
+                    Rigidbody2D ZauberInstance;
+                    ZauberInstance = Instantiate(ShieldGRUEN1, AbschussPosition.position, transform.rotation) as Rigidbody2D;
+
+                    nextShield1Allowed = Time.time + Shield1CD;
+                }
+            }
+            else if (Input.GetKeyDown("g") && Zauber2 == true)
+            {
+                if (Time.time > nextShield2Allowed)
+                {
+                    Rigidbody2D ZauberInstance;
+                    ZauberInstance = Instantiate(ShieldGRUEN2, AbschussPosition.position, transform.rotation) as Rigidbody2D;
+
+                    nextShield2Allowed = Time.time + Shield2CD;
+                }
+            }
+            else if (Input.GetKeyDown("g") && Zauber3 == true)
+            {
+                if (Time.time > nextShield3Allowed)
+                {
+                    Rigidbody2D ZauberInstance;
+                    ZauberInstance = Instantiate(ShieldGRUEN3, AbschussPosition.position, transform.rotation) as Rigidbody2D;
+
+                    nextShield3Allowed = Time.time + Shield3CD;
+                }
+            }
+
+            //Blau
+            if (Input.GetKeyDown("h") && Zauber1 == true)
+            {
+                if (Time.time > nextShield1Allowed)
+                {
+                    Rigidbody2D ZauberInstance;
+                    ZauberInstance = Instantiate(ShieldBLAU1, AbschussPosition.position, transform.rotation) as Rigidbody2D;
+
+                    nextShield1Allowed = Time.time + Shield1CD;
+                }
+            }
+            else if (Input.GetKeyDown("h") && Zauber2 == true)
+            {
+                if (Time.time > nextShield2Allowed)
+                {
+                    Rigidbody2D ZauberInstance;
+                    ZauberInstance = Instantiate(ShieldBLAU2, AbschussPosition.position, transform.rotation) as Rigidbody2D;
+
+                    nextShield2Allowed = Time.time + Shield2CD;
+                }
+            }
+            else if (Input.GetKeyDown("h") && Zauber3 == true)
+            {
+                if (Time.time > nextShield3Allowed)
+                {
+                    Rigidbody2D ZauberInstance;
+                    ZauberInstance = Instantiate(ShieldBLAU3, AbschussPosition.position, transform.rotation) as Rigidbody2D;
+
+                    nextShield3Allowed = Time.time + Shield3CD;
+                }
+            }
+        }
 
 
-        
 
-            /*if (facingRight == true)
-                BallInstance.AddForce(ShootRight * ShootingForce);
-            else if (facingLeft == true)
-                BallInstance.AddForce(ShootLeft * ShootingForce);
+        /*if (facingRight == true)
+            BallInstance.AddForce(ShootRight * ShootingForce);
+        else if (facingLeft == true)
+            BallInstance.AddForce(ShootLeft * ShootingForce);
 
-            if (facingForwards == true)
-                BallInstance.AddForce(ShootForwards * ShootingForce);
-            else if (facingBackwards == true)
-                BallInstance.AddForce(ShootBackwards * ShootingForce);
-                */
-        
-	}
+        if (facingForwards == true)
+            BallInstance.AddForce(ShootForwards * ShootingForce);
+        else if (facingBackwards == true)
+            BallInstance.AddForce(ShootBackwards * ShootingForce);
+            */
+
+    }
 }
