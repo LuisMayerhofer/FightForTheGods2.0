@@ -1451,7 +1451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedP2: 150
   HPP2: 50
-  DashDelay: 0.6
+  DashDelay: 0.5
   DashForce: 5000
 --- !u!114 &1890613410
 MonoBehaviour:
