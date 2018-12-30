@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour {
 
@@ -18,6 +19,7 @@ public class PlayerMove : MonoBehaviour {
     private float DashRightTime = 0;
     private float DashLeftTotal = 0;
     private float DashLeftTime = 0;
+    private bool Player2Won;
 
     private void Awake()
     {
@@ -43,7 +45,11 @@ public class PlayerMove : MonoBehaviour {
         rb2d.AddForce(new Vector2(moveH, moveV) * speed);
 
         if (HP <= 0)
+        {
+            
+            SceneManager.LoadScene(3);
             Destroy(gameObject);
+        }
 
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player2Scr : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Player2Scr : MonoBehaviour
     private float DashRightTime = 0;
     private float DashLeftTotal = 0;
     private float DashLeftTime = 0;
+    private bool Player2Won;
 
     private void Awake()
     {
@@ -113,8 +115,13 @@ public class Player2Scr : MonoBehaviour
 
         rb2d.AddForce(dir * speedP2);
 
+        //HP
         if (HPP2 <= 0)
+        {
+            
+            SceneManager.LoadScene(2);
             Destroy(gameObject);
+        }
 
         //Dash right
         if (Input.GetKeyDown("l"))
