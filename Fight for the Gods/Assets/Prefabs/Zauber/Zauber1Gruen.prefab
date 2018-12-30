@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43b345eca2c0c643b8c5a8134b55ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 1783282546275720, guid: 672868c708bfce24db03625589eefbaa, type: 3}
+  explosion: {fileID: 1972663021410670, guid: aec2624c589e50547b73125b1804ba13, type: 3}
   damage: 10
   BounceCountMax: 2
 --- !u!58 &58970926017008474

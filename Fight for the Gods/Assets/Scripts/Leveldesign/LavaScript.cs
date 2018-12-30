@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LavaScript : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class LavaScript : MonoBehaviour {
     {
         if (coll.CompareTag("Player1") || coll.CompareTag("Player2"))
         {
+            SceneManager.LoadScene(0);
             Destroy(coll.gameObject);
         }
     }
