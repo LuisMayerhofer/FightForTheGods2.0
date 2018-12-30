@@ -755,6 +755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 150
   HP: 50
+  DashDelay: 0.5
+  DashForce: 5000
 --- !u!61 &712182150
 BoxCollider2D:
   m_ObjectHideFlags: 0

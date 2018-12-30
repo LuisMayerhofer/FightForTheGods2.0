@@ -8,6 +8,7 @@ public class Audio : MonoBehaviour {
     private bool playingSong1 = false;
     private bool playingSong2 = false;
     private bool playingSong3 = false;
+    private int StartSong;
 
     public float starttime;
     public AudioClip Song1;
@@ -19,7 +20,14 @@ public class Audio : MonoBehaviour {
     private void Awake()
     {
         audiosource = GetComponent<AudioSource>();
-        audiosource.clip = Song1;
+        StartSong = Random.Range(1, 3);
+
+        if (StartSong == 1)
+            audiosource.clip = Song1;
+        else if (StartSong == 2)
+            audiosource.clip = Song2;
+        else
+            audiosource.clip = Song3;
     }
 
     private void Start()

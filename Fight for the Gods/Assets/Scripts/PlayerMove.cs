@@ -6,12 +6,18 @@ public class PlayerMove : MonoBehaviour {
 
     public float speed;
     public int HP;
+    public float DashDelay;
+    public float DashForce;
 
     private Rigidbody2D rb2d;
     private Animator Anim;
     private Transform Trans;
     private bool Xfirst, Yfirst;
     private Vector2 dir;
+    private float DashRightTotal = 0;
+    private float DashRightTime = 0;
+    private float DashLeftTotal = 0;
+    private float DashLeftTime = 0;
 
     private void Awake()
     {
@@ -117,83 +123,87 @@ public class PlayerMove : MonoBehaviour {
 
          rb2d.AddForce(dir * speed);
 
-
-
-         /* float horizontal = Input.GetAxisRaw("Horizontal");
-          float vertikal = Input.GetAxisRaw("Vertical");
-
-          //AnimationRun
-          if (vertikal > 0)
-          {
-              Anim.SetBool("RunBool", true);
-          }
-          else if ( vertikal < 0)
-          {
-              Anim.SetBool("RunBool", true);
-          }
-          else if(vertikal == 0)
-          {
-              Anim.SetBool("RunBool", false);
-          }
-
-          if (horizontal > 0)
-          {
-              Anim.SetBool("Seitwaerts", true);
-          }
-          else if (horizontal < 0)
-          {
-              Anim.SetBool("Seitwaerts", true);
-          }
-          else if (horizontal == 0)
-          {
-              Anim.SetBool("Seitwaerts", false);
-          }*/
-
-
-
-        /*if (Input.GetKeyDown("space"))
+        //Dash right
+        if (Input.GetKeyDown("d"))
         {
-            Instantiate(Block, BlockPosition.position, BlockPosition.rotation);
+            DashRightTotal += 1;
         }
-        */
-
-
-
-
-
-        //-------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-        //Unnötig
-
-        //Rotation
-        /*if (Input.GetButtonDown("right"))
+        if ((DashRightTotal == 1) && (DashRightTime < DashDelay))
+            DashRightTime += Time.deltaTime;
+        if ((DashRightTotal == 1) && (DashRightTime >= DashDelay))
         {
-            transform.rotation = Quaternion.AngleAxis(-90, Vector3.back);
+            DashRightTime = 0;
+            DashRightTotal = 0;
         }
-                
-
-        if (Input.GetButtonDown("left"))
+        if ((DashRightTotal == 2) && (DashRightTime < DashDelay))
         {
-            transform.rotation = Quaternion.AngleAxis(90, Vector3.back);
+            DashRightTotal = 0;
+            rb2d.AddForce(new Vector2(1, 0) * DashForce);
         }
-                
-
-        if (Input.GetButtonDown("down"))
+        if ((DashRightTotal == 2) && (DashRightTime >= DashDelay))
         {
-            transform.rotation = Quaternion.AngleAxis(0, Vector3.back);
+            DashRightTime = 0;
+            DashRightTotal = 0;
         }
 
-        if (Input.GetButtonDown("up"))
+        //Dash left
+        if (Input.GetKeyDown("a"))
         {
-            transform.rotation = Quaternion.AngleAxis(180, Vector3.back);
-        }  */
+            DashLeftTotal += 1;
+
+        }
+        if ((DashLeftTotal == 1) && (DashLeftTime < DashDelay))
+            DashLeftTime += Time.deltaTime;
+
+        if ((DashRightTotal == 1) && (DashLeftTime >= DashDelay))
+        {
+            DashLeftTime = 0;
+            DashLeftTotal = 0;
+
+        }
+        if ((DashLeftTotal == 2) && (DashLeftTime < DashDelay))
+        {
+            DashLeftTotal = 0;
+            rb2d.AddForce(new Vector2(-1, 0) * DashForce);
+
+        }
+        if ((DashLeftTotal == 2) && (DashLeftTime >= DashDelay))
+        {
+            DashLeftTime = 0;
+            DashLeftTotal = 0;
+
+        }
+
+        /* float horizontal = Input.GetAxisRaw("Horizontal");
+         float vertikal = Input.GetAxisRaw("Vertical");
+
+         //AnimationRun
+         if (vertikal > 0)
+         {
+             Anim.SetBool("RunBool", true);
+         }
+         else if ( vertikal < 0)
+         {
+             Anim.SetBool("RunBool", true);
+         }
+         else if(vertikal == 0)
+         {
+             Anim.SetBool("RunBool", false);
+         }
+
+         if (horizontal > 0)
+         {
+             Anim.SetBool("Seitwaerts", true);
+         }
+         else if (horizontal < 0)
+         {
+             Anim.SetBool("Seitwaerts", true);
+         }
+         else if (horizontal == 0)
+         {
+             Anim.SetBool("Seitwaerts", false);
+         }*/
+
+
     }    
 }
