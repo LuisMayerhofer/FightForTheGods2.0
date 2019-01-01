@@ -2,29 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour {
 
-    public float speed;
     public int HP;
+
+    public float speed;
     public float DashDelay;
     public float DashForce;
 
+    public Slider healthBar;
+    public Text PopUpZahl;
+    public Canvas canvasParent;
+    public GameObject rotationGameobject;
+    public Transform PopUpPosition;
+
     private Rigidbody2D rb2d;
     private Animator Anim;
-    private Transform Trans;
-    private bool Xfirst, Yfirst;
+    private Transform Trans;    
     private Vector2 dir;
+
     private float DashRightTotal = 0;
     private float DashRightTime = 0;
     private float DashLeftTotal = 0;
     private float DashLeftTime = 0;
+    private float curenthealth;
+
     private bool Player2Won;
+    private bool Xfirst, Yfirst;
+    
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
+        curenthealth = HP;
+
+        healthBar.value = CalculateHealth();
     }    
 
     
@@ -32,9 +47,17 @@ public class PlayerMove : MonoBehaviour {
 
     public void GetDamage(int damage)
     {
-        HP -= damage;
+        curenthealth -= damage;
+        healthBar.value = CalculateHealth();
+        Text PopUpInstance = Instantiate(PopUpZahl, PopUpPosition.position, rotationGameobject.transform.rotation);
+        PopUpInstance.text = " " + damage;
+        PopUpInstance.transform.SetParent(canvasParent.transform);
     }
 
+    float CalculateHealth()
+    {
+        return curenthealth / HP;
+    }
 
     private void Update()
     {
@@ -44,7 +67,7 @@ public class PlayerMove : MonoBehaviour {
 
         rb2d.AddForce(new Vector2(moveH, moveV) * speed);
 
-        if (HP <= 0)
+        if (curenthealth <= 0)
         {
             
             SceneManager.LoadScene(3);
@@ -54,9 +77,10 @@ public class PlayerMove : MonoBehaviour {
 
 
 
+        //------------------------------------------------------------------------------------
+        //Movement
 
-        
-             float x = Input.GetAxisRaw("Horizontal");
+        float x = Input.GetAxisRaw("Horizontal");
              float y = Input.GetAxisRaw("Vertical");
 
 
@@ -128,6 +152,9 @@ public class PlayerMove : MonoBehaviour {
              }
 
          rb2d.AddForce(dir * speed);
+
+        //------------------------------------------------------------------------------------
+        //Dash
 
         //Dash right
         if (Input.GetKeyDown("d"))

@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1972663021410670, guid: aec2624c589e50547b73125b1804ba13, type: 3}
-  damage: 10
+  damage: 20
   BounceCountMax: 2
 --- !u!58 &58970926017008474
 CircleCollider2D:

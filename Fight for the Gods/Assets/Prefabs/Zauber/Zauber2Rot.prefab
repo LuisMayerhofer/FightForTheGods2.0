@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1972663021410670, guid: aec2624c589e50547b73125b1804ba13, type: 3}
-  damage: 20
+  damage: 40
   BounceCountMax: 0
 --- !u!198 &8668391293273303500
 ParticleSystem:
