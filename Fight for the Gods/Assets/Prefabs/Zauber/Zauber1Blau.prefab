@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1972663021410670, guid: aec2624c589e50547b73125b1804ba13, type: 3}
   damage: 20
-  BounceCountMax: 2
+  BounceCountMax: 1
 --- !u!198 &5258054040457919005
 ParticleSystem:
   m_ObjectHideFlags: 0

@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6bac90dae0bd34c9af756a463d9413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 51
+  HP: 102
   lifetime: 5
 --- !u!95 &3685292433292951949
 Animator:
