@@ -64,6 +64,11 @@ public class PlayerMove : MonoBehaviour {
 
     private void Update()
     {
+       //HP
+       if (curenthealth <= 0)
+        {
+            SceneManager.LoadScene(3);
+        }
         //Controller
 
         float moveH = Input.GetAxis("HorizontalLS");

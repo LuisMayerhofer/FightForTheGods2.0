@@ -58,6 +58,7 @@ public class BallSchuss : MonoBehaviour {
     private bool Zauber2 = false;
     private bool Zauber3 = false;
     private bool Capslock = false;
+    private bool RechterBumper = false;
 
     private Vector2 ShootForwards = new Vector2(0, 1);
 
@@ -73,12 +74,19 @@ public class BallSchuss : MonoBehaviour {
 
     void Update () {
 
+        //CapsLock
         if (Input.GetKeyDown(KeyCode.CapsLock))
         {
             Capslock = true;
         }
         if (Input.GetKeyUp(KeyCode.CapsLock))
             Capslock = false;
+
+        //RightBumper
+        if (Input.GetButtonDown("Right Bumper"))
+            RechterBumper = true;
+        if (Input.GetButtonUp("Right Bumper"))
+            RechterBumper = false;
 
         //Facing
         /*if (Input.GetButtonDown("right"))
@@ -114,37 +122,37 @@ public class BallSchuss : MonoBehaviour {
         }*/
 
 
-        // Zauber
-        /* R = 1
-         * T = 2
-         * Z = 3
-         * 
-         * F = Rot
-         * G = Gruen
-         * H = Blau
-        */
+            // Zauber
+            /* R = 1
+             * T = 2
+             * Z = 3
+             * 
+             * F = Rot
+             * G = Gruen
+             * H = Blau
+            */
 
-        /*if (Input.GetKeyDown("r"))
-        {
-            Zauber1 = true;
-            Zauber2 = false;
-            Zauber3 = false;
-            sr.sprite = Zauber1Equipped;
-        }
-        if (Input.GetKeyDown("t"))
-        {
-            Zauber1 = false;
-            Zauber2 = true;
-            Zauber3 = false;
-            sr.sprite = Zauber2Equipped;
-        }
-        if (Input.GetKeyDown("z"))
-        {
-            Zauber1 = false;
-            Zauber2 = false;
-            Zauber3 = true;
-            sr.sprite = Zauber3Equipped;
-        }*/
+            /*if (Input.GetKeyDown("r"))
+            {
+                Zauber1 = true;
+                Zauber2 = false;
+                Zauber3 = false;
+                sr.sprite = Zauber1Equipped;
+            }
+            if (Input.GetKeyDown("t"))
+            {
+                Zauber1 = false;
+                Zauber2 = true;
+                Zauber3 = false;
+                sr.sprite = Zauber2Equipped;
+            }
+            if (Input.GetKeyDown("z"))
+            {
+                Zauber1 = false;
+                Zauber2 = false;
+                Zauber3 = true;
+                sr.sprite = Zauber3Equipped;
+            }*/
 
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("Left Bumper"))
         {
@@ -171,7 +179,7 @@ public class BallSchuss : MonoBehaviour {
             }
         }
 
-        if (!Capslock)
+        if (!Capslock && !RechterBumper)
         {
             //Rot
             if ((Input.GetKeyDown("f") || Input.GetButtonDown("B Button")) && Zauber1 == true)
@@ -273,7 +281,7 @@ public class BallSchuss : MonoBehaviour {
 
             //Shields
         }
-        else
+        else if (Capslock || RechterBumper)
         {
             //Rot
             if ((Input.GetKeyDown("f") || Input.GetButtonDown("B Button")) && Zauber1 == true)
