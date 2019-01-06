@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour {
     public float speed;
     public float DashDelay;
     public float DashForce;
+    public float DashCD;
 
     public Slider healthBar;
     public Text PopUpZahl;
@@ -28,6 +29,8 @@ public class PlayerMove : MonoBehaviour {
     private float DashLeftTotal = 0;
     private float DashLeftTime = 0;
     private float curenthealth;
+    float nextDashAllowedRight;
+    float nextDashAllowedLeft;
 
     private bool Player2Won;
     private bool Xfirst, Yfirst;
@@ -61,18 +64,53 @@ public class PlayerMove : MonoBehaviour {
 
     private void Update()
     {
+        //Controller
+
         float moveH = Input.GetAxis("HorizontalLS");
         float moveV = Input.GetAxis("VerticalLS");
-
+        Debug.Log(moveH + " " + moveV);
+        if (moveH == 0 && moveV == 0)
+        {
+            Anim.SetBool("RunBool", false);
+            Anim.SetBool("Seitwaerts", false);
+        }
+        if (Mathf.Abs(moveV)> Mathf.Abs(moveH))
+        {
+            Anim.SetBool("RunBool", true);
+            Anim.SetBool("Seitwaerts", false);
+        }
+        if (Mathf.Abs(moveV) < Mathf.Abs(moveH))
+        {
+            Anim.SetBool("RunBool", false);
+            Anim.SetBool("Seitwaerts", true);
+        }
 
         rb2d.AddForce(new Vector2(moveH, moveV) * speed);
 
-        if (curenthealth <= 0)
+        //Dash
+
+        //Dash right
+        
+        if (Input.GetAxis("Right Trigger")>0.2)
         {
-            
-            SceneManager.LoadScene(3);
-            Destroy(gameObject);
+            if (Time.time > nextDashAllowedRight)
+            {
+                rb2d.AddForce(new Vector2(1, 0) * DashForce);
+                nextDashAllowedRight = Time.time + DashCD;
+            }
         }
+
+        //Dash left
+        if (Input.GetAxis("Left Trigger") > 0.2)
+        {
+            if (Time.time > nextDashAllowedLeft)
+            {
+                rb2d.AddForce(new Vector2(-1, 0) * DashForce);
+                nextDashAllowedLeft = Time.time + DashCD;
+            }
+        }
+       
+        
 
 
 
@@ -93,24 +131,18 @@ public class PlayerMove : MonoBehaviour {
                      Xfirst = false;
                      Yfirst = true; //Then it means he started by moving along the Y axis, and not along the X axis.
                      dir = Vector2.up * y;
-                     Anim.SetBool("RunBool", true);
-                     Anim.SetBool("Seitwaerts", false);
+                    
                  }
                  if (x != 0) // If he's clicking on the X axis (and on the Y axis at the same time)
                  {
                      if (Xfirst)//We check if he clicked first on X.
                      {
                          dir = Vector2.up * y; //If he did clicked first on X, then we go for Y , we change direction
-                         Anim.SetBool("RunBool", true);
-                         Anim.SetBool("Seitwaerts", false);
+                        
                      }
                      else
                      {
                          dir = Vector2.right * x;//If he did clicked first on Y, then we go for X.
-                         Anim.SetBool("RunBool", false);
-                         Anim.SetBool("Seitwaerts", true);
-
-
                      }
 
 
@@ -124,22 +156,17 @@ public class PlayerMove : MonoBehaviour {
                      Xfirst = true;
                      Yfirst = false;//In fact this way, we set Yfirst to false only when the user releases the Y button.
                      dir = Vector2.right * x;
-                     Anim.SetBool("RunBool", false);
-                     Anim.SetBool("Seitwaerts", true);
                  }
                  if (y != 0)
                  {
                      if (Yfirst)
                      {
                          dir = Vector2.right * x;
-                         Anim.SetBool("RunBool", false);
-                     Anim.SetBool("Seitwaerts", true);
                      }
                      else if (Xfirst)//Added one more check here. This way, if the player wasn't mooving, but acheive to hit X and Y and the same time, he will go on the Y axis by default.
                      {
                          dir = Vector2.up * y;
-                         Anim.SetBool("RunBool", true);
-                         Anim.SetBool("Seitwaerts", false);
+
                      }
                  }
              }
@@ -147,8 +174,6 @@ public class PlayerMove : MonoBehaviour {
              if (x == 0 && y == 0)
              {
                  dir = Vector2.zero;
-             Anim.SetBool("RunBool", false);
-             Anim.SetBool("Seitwaerts", false);
              }
 
          rb2d.AddForce(dir * speed);
