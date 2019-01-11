@@ -911,6 +911,7 @@ GameObject:
   - component: {fileID: 712182149}
   - component: {fileID: 712182154}
   - component: {fileID: 712182155}
+  - component: {fileID: 712182156}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player1
@@ -1132,6 +1133,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &712182156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712182148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58fa550c88e5e546b3d029385c0280b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &830596341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1655,7 @@ GameObject:
   - component: {fileID: 1542734389}
   - component: {fileID: 1542734388}
   - component: {fileID: 1542734387}
+  - component: {fileID: 1542734392}
   m_Layer: 8
   m_Name: Pentagramm
   m_TagString: Destroyable
@@ -6393,6 +6407,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1542734392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542734386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7aa0bd037a9e354d8930145c1000769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 5
 --- !u!1 &1570358661
 GameObject:
   m_ObjectHideFlags: 0
