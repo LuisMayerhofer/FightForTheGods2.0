@@ -23,6 +23,7 @@ public class BallScript : MonoBehaviour {
         {
             col.SendMessageUpwards("GetDamage", damage);
         }
+        
         else if (col.CompareTag("Destroy"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
