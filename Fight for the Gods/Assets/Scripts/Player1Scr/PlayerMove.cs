@@ -73,7 +73,7 @@ public class PlayerMove : MonoBehaviour {
 
         float moveH = Input.GetAxis("HorizontalLS");
         float moveV = Input.GetAxis("VerticalLS");
-        Debug.Log(moveH + " " + moveV);
+        
         if (moveH == 0 && moveV == 0)
         {
             Anim.SetBool("RunBool", false);

@@ -97,7 +97,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31d19b0acc2d2814b931cc1b3b88c93c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9811321, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -381,8 +381,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.58431375, g: 0.023529427, b: 0.3796982, a: 1}
-      maxColor: {r: 0.972549, g: 0.14117645, b: 0.82068807, a: 1}
+      minColor: {r: 0.58431375, g: 0.034742795, b: 0.023529427, a: 1}
+      maxColor: {r: 0.972549, g: 0.14117645, b: 0.14117645, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

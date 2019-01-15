@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 6988864053232720404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.81, y: 13.55, z: -0.24564004}
-  m_LocalScale: {x: 11, y: 4.8248076, z: 4.8248076}
+  m_LocalScale: {x: 7.6, y: 4.8248076, z: 4.8248076}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,10 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 646002543
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: baba6fc44a7f1e04d99d9afa76a2e67e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2376b846ed1d4314d8803037750964f6, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.16084719, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02218847, y: 0.027933676}
+  m_Offset: {x: -0.01680684, y: 0.062288836}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3103409, y: 0.14836407}
+  m_Size: {x: 0.5105406, y: 0.12873277}
   m_EdgeRadius: 0
 --- !u!61 &6988864053232720394
 BoxCollider2D:
@@ -125,18 +125,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022141337, y: 0.021883085}
+  m_Offset: {x: -0.019988686, y: 0.058692206}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25952992, y: 0.08450307}
+  m_Size: {x: 0.48340935, y: 0.08941097}
   m_EdgeRadius: 0
 --- !u!50 &6988864053232720395
 Rigidbody2D:
