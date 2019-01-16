@@ -5,6 +5,8 @@ using UnityEngine;
 public class UltiIcon1Scr : MonoBehaviour
 {
     public GameObject Player1;
+    public float ultiReloadSpeed;
+    public ParticleSystem StartParticleSystem;
     private SpriteRenderer sr;
     private ParticleSystem particlesystem;
     private Color tmp;
@@ -23,7 +25,6 @@ public class UltiIcon1Scr : MonoBehaviour
     {
         if (UltiRunning)
         {
-            Debug.Log("UltiRunning");
             tmp = sr.color;
             tmp.a = 0;
             sr.color = tmp;
@@ -35,22 +36,25 @@ public class UltiIcon1Scr : MonoBehaviour
     {
         if (startCD && Time.time >= plusOneSecond )
         {
-            tmp.a += 0.2f;
+            Invoke("StopParticle", 0.001f);
+            tmp.a += ultiReloadSpeed;
             sr.color = tmp;
             plusOneSecond = Time.time + 1;
         }
-        if (tmp.a == 1)
+        if (tmp.a >= 1)
         {
-            particlesystem.Play();
-            Invoke("StopParticle", 1);
+            particlesystem.Play(true);
+            
+            Debug.Log("Play");
             Player1.SendMessageUpwards("NextUlti", NextUltiAllowed = true);
             startCD = false;
+            tmp.a = 0;
         }
     }
 
     void StopParticle()
     {
-        particlesystem.Stop();
+        particlesystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
 }

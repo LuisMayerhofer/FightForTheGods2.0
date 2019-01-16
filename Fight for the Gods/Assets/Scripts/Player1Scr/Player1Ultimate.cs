@@ -41,9 +41,8 @@ public class Player1Ultimate : MonoBehaviour
     }
 
     void UltiEnde()
-    {
-        Destroy(UltiInstance);
-        
+    {        
+       Destroy(UltiInstance);       
     }
     public void NextUlti(bool NextUltiAllowed)
     {
