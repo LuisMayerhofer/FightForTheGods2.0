@@ -28,6 +28,7 @@ public class UltiIcon1Scr : MonoBehaviour
             tmp = sr.color;
             tmp.a = 0;
             sr.color = tmp;
+            Invoke("StopParticle", 0.001f);
             startCD = true;
         }
     }
@@ -36,7 +37,7 @@ public class UltiIcon1Scr : MonoBehaviour
     {
         if (startCD && Time.time >= plusOneSecond )
         {
-            Invoke("StopParticle", 0.001f);
+            
             tmp.a += ultiReloadSpeed;
             sr.color = tmp;
             plusOneSecond = Time.time + 1;
@@ -55,6 +56,7 @@ public class UltiIcon1Scr : MonoBehaviour
     void StopParticle()
     {
         particlesystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        Debug.Log("Stop");
     }
 
 }
