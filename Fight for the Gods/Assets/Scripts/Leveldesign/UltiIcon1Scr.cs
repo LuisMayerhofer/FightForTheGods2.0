@@ -46,7 +46,7 @@ public class UltiIcon1Scr : MonoBehaviour
         {
             particlesystem.Play(true);
             
-            Debug.Log("Play");
+            
             Player1.SendMessageUpwards("NextUlti", NextUltiAllowed = true);
             startCD = false;
             tmp.a = 0;
@@ -56,7 +56,7 @@ public class UltiIcon1Scr : MonoBehaviour
     void StopParticle()
     {
         particlesystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        Debug.Log("Stop");
+        
     }
 
 }
