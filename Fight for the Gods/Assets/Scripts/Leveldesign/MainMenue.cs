@@ -15,7 +15,13 @@ public class MainMenue : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)||Input.GetButtonDown("A Button"))
-            SceneManager.LoadScene(1);
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("A Button"))
+        {
+            int Number = Random.Range(1, 3);
+            if (Number == 1)
+                SceneManager.LoadScene(1);
+            else
+                SceneManager.LoadScene(4);
+        }
     }
 }
