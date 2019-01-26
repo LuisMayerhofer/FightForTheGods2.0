@@ -24,7 +24,7 @@ public class BallScript : MonoBehaviour {
             col.SendMessageUpwards("GetDamage", damage);
         }
         
-        else if (col.CompareTag("Destroy"))
+        else if (col.CompareTag("Destroy") || col.CompareTag("Stone"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
