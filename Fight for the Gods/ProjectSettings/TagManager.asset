@@ -19,6 +19,8 @@ TagManager:
   - Zauber3Rot
   - Shield
   - Zauber1Rot
+  - IceFluss
+  - Stone
   layers:
   - Default
   - TransparentFX
