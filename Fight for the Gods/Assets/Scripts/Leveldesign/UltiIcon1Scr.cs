@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UltiIcon1Scr : MonoBehaviour
 {
-    public GameObject Player1;
+    public GameObject Player;
     public float ultiReloadSpeed;
     public ParticleSystem StartParticleSystem;
     private SpriteRenderer sr;
@@ -47,7 +47,7 @@ public class UltiIcon1Scr : MonoBehaviour
             particlesystem.Play(true);
             
             
-            Player1.SendMessageUpwards("NextUlti", NextUltiAllowed = true);
+            Player.SendMessageUpwards("NextUlti", NextUltiAllowed = true);
             startCD = false;
             tmp.a = 0;
         }
