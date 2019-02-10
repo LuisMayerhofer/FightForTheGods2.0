@@ -437,7 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LaserIcon: {fileID: 0}
   damage: 1
-  LaserDuration: 15
+  LaserDuration: 10
 --- !u!1001 &1364912097465504165
 PrefabInstance:
   m_ObjectHideFlags: 0
